@@ -5,7 +5,6 @@ from grover_operator import GroverOperator
 
 
 def qft(n):
-    """Creates an n-qubit QFT circuit"""
     circuit = QuantumCircuit(n)
 
     def swap_registers(circuit, n):
@@ -14,7 +13,6 @@ def qft(n):
         return circuit
 
     def qft_rotations(circuit, n):
-        """Performs qft on the first n qubits in circuit (without swaps)"""
         if n == 0:
             return circuit
         n -= 1
@@ -29,7 +27,7 @@ def qft(n):
 
 
 class PhaseEstimation:
-    def get_control_gft(self, label="QFT†"):
+    def get_control_gft(self, label="QFT"):
         qft_dagger = self.qft_circuit.to_gate().inverse()
         qft_dagger.label = label
         return qft_dagger

@@ -13,8 +13,10 @@ class SATCircuit:
         circuit.z(total - 1)
 
         itr = round(((pi / (2 * acos(sqrt((pow(2, n) - M) / pow(2, n))))) - 1) / 2)
+        if itr == 0:
+            raise SystemExit("No solution found")
         for x in range(itr):
             circuit = circuit.compose(grover_operator)
 
-        circuit.measure(range(n), range(n - 1, -1, -1))
+        circuit.measure(range(n), range(n))
         self.main_circuit = circuit
