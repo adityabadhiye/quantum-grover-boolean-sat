@@ -10,7 +10,7 @@ def simulateStatevector(circuit):
     return plot_histogram(counts, color='midnightblue', title="StateVector Histogram")
 
 
-def simulateQasm(circuit, count=128):
+def simulateQasm(circuit, count=1024):
     backend = Aer.get_backend('qasm_simulator')
     result = execute(circuit, backend, shots=count).result()
     counts = result.get_counts()
