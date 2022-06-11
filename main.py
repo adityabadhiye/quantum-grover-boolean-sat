@@ -16,7 +16,7 @@ def run(input_expr):
         raise SystemExit("No solution found")
     sat_cir = SATCircuit(parsed.var_count, parsed.cnf_exp, phase_esti.M, grover_op.main_circuit)
     sat_cir.main_circuit.draw('mpl')
-    simulateStatevector(sat_cir.main_circuit)
+    print(simulateStatevector(sat_cir.main_circuit).draw())
     simulateQasm(sat_cir.main_circuit)
 
 
