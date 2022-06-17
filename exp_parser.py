@@ -3,9 +3,11 @@ from sympy.parsing.sympy_parser import parse_expr
 from sympy.logic import simplify_logic
 
 
+# Converts normal expression to CNF form
 class CNFParser:
     def __init__(self, raw_exp):
         self.raw_exp = raw_exp
+        # remove and/xor/or/not from expression string using regex
         self.raw_exp = re.sub('(?i)' + re.escape(' and '), ' & ', self.raw_exp)
         self.raw_exp = re.sub('(?i)' + re.escape(' xor '), ' ^ ', self.raw_exp)
         self.raw_exp = re.sub('(?i)' + re.escape(' or '), ' | ', self.raw_exp)
@@ -28,4 +30,3 @@ class CNFParser:
                     a[i] = self.var_to_int[b]
                 else:
                     a[i] = -1 * self.var_to_int[b[1:]]
-                    

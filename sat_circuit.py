@@ -2,6 +2,7 @@ from qiskit import QuantumCircuit
 from math import pi, sqrt, acos
 
 
+# creates final grover's circuit, based of number of solutions
 class SATCircuit:
     def __init__(self, n, cnf, M, grover_operator):
         eq = len(cnf)

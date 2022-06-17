@@ -2,6 +2,7 @@ from qiskit import QuantumCircuit
 from qiskit.circuit.library.standard_gates.x import MCXGate
 
 
+# Class that creates and holds grover's circuit for some given expression
 class GroverOperator:
     def get_control_circuit(self, label="Grover"):
         grit = self.main_circuit.to_gate()

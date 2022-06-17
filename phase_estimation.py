@@ -4,7 +4,7 @@ from qiskit.compiler import transpile, assemble
 from grover_operator import GroverOperator
 
 
-def qft(n):
+def qft(n):  # returns circuit for inverse quantum fourier transformation for given n
     circuit = QuantumCircuit(n)
 
     def swap_registers(circuit, n):
@@ -27,7 +27,7 @@ def qft(n):
 
 
 class PhaseEstimation:
-    def get_control_gft(self, label="QFT"):
+    def get_control_gft(self, label="QFT †"):
         qft_dagger = self.qft_circuit.to_gate().inverse()
         qft_dagger.label = label
         return qft_dagger
