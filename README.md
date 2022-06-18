@@ -3,7 +3,10 @@
 
 Solve k-SAT problem with grover's algorithm in quantum computer using qiskit
 - Created own *Oracle* based on given equation and displayed its circuit
-- Using *Phase Estimation* to find repetitions of Oracle
+- Using *Phase Estimation* and *Inverse QFT* to find the number of solutions **m** of given equation
+- Applying Grover for *l* iteration where *l* is given by
+$$l = \left \lfloor \left ( \frac{\pi }{2\cos^{-1}\sqrt{\frac{2^{n}-m}{2^{n}}}} -1\right )/2 \right \rceil$$
+where *n = number of variables*
 - Simulating final circuit in *Qasm Simulator* and *StateVector Simulator*
 - Showing Histogram and printing StateVector
 
@@ -29,3 +32,8 @@ python3 main.py "(a & b) & (~c | (c & d & ~e))"
 ![circuit](https://github.com/adityabadhiye/grover-sat/blob/master/images/circuit.png)
 
 ![histogram](https://github.com/adityabadhiye/grover-sat/blob/master/images/qasmhist.png)
+
+# References
+- http://mmrc.amss.cas.cn/tlb/201702/W020170224608149125645.pdf
+- http://mmrc.amss.cas.cn/tlb/201702/W020170224608149940643.pdf
+- https://www.cse.iitk.ac.in/users/rmittal/prev_course/s21/reports/11_search.pdf
